@@ -1,0 +1,45 @@
+#alarmtoggler {
+	position: absolute;
+	left: 49%;
+	top: 60%;
+}
+
+#header {
+	position: absolute;
+	left: 33%;
+	top: 33%;
+	color: white;
+	font-size: 4em;
+}
+
+#pin {
+	position: absolute;
+	left: 49%;
+	top: 55%;
+	text-align:center;
+	background-color:grey;
+	width:90px;
+}
+
+body {
+	background-color: grey;
+}
+
+#circle {
+  	width: 70px;
+  	height: 70px;
+  	-webkit-border-radius: 35px;
+  	-moz-border-radius: 35px;
+  	border-radius: 35px;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+}
+
+.alarm_off {
+	background: black;
+}
+
+.alarm_on {
+	background: red;
+}
