@@ -1,39 +1,45 @@
-#alarmtoggler {
-	position: absolute;
-	left: 49%;
-	top: 60%;
+#alarmtoggler, #lampToggler, #lampAutoToggler {
+	margin-left: 7%;
+	margin-top: 200px;
+	width:150px;
+	display: inline-block;
 }
 
 #header {
 	position: absolute;
-	left: 33%;
-	top: 33%;
+	left: 30%;
+	top: 200px;
 	color: white;
 	font-size: 4em;
 }
 
 #pin {
 	position: absolute;
-	left: 49%;
-	top: 55%;
+	left: 47%;
+	top: 360px;
 	text-align:center;
 	background-color:grey;
-	width:90px;
+	width:105px;
+	margin-bottom: 15px !important;
 }
 
 body {
 	background-color: grey;
 }
 
-#circle {
+#alarmState, #lampState, #lampAuto {
   	width: 70px;
   	height: 70px;
-  	-webkit-border-radius: 35px;
-  	-moz-border-radius: 35px;
-  	border-radius: 35px;
-	position: absolute;
-	left: 50%;
+	border-radius: 50%;
+    	-webkit-border-radius: 50%;
+    	-moz-border-radius: 50%;
 	top: 30%;
+	color:white;
+	text-align:center;
+	display: inline-block;
+	margin-left:12%;
+	margin-top:150px;
+	vertical-align: middle;
 }
 
 .alarm_off {
@@ -42,4 +48,17 @@ body {
 
 .alarm_on {
 	background: red;
+}
+
+.hidden {
+	display: none;
+}
+
+.circleText {
+	margin-top: 15px;
+}
+
+input[type="button"]  {
+	border-radius: 50%;
+	height: 60px;
 }

@@ -2,16 +2,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="script/index.js"></script>
+		<script>
+			window.onload = setUpPage;
+		</script>
 	</head>
 
 	<body>
-		<script src="script/index.js"></script>
+		<div id='alarmState' class='alarm_off'><p class='circleText'>Alarm</p></div>
+		<div id='lampState' class='alarm_off'><p class='circleText'>Lampa</p></div>
+		<div id='lampAuto' class='alarm_off'><p class'circleText'>Lampa auto</p></div>
+		<div id='lampAuto'class='alarm_off'><p class'circleText'></p></div>
+		<div id='lampAuto' class='alarm_off'><p class'circleText'></p></div>
 
 		<p id='header' align='center'>Witaj w świecie Boba !</p>
+
 		<input id='alarmToggler' type='button' align='center' value='Włącz alarm' onclick="alarmBtnTrigger()"></input>
+		<input id='lampToggler' type='button' align='center' value='Włącz lampę' onclick="lampBtnTrigger()"></input>
+		<input id='lampAutoToggler' type='button' align='center' value='Włącz auto światło' onclick="lampAutoBtnTrigger()"></input>
+		<input id='lampAutoToggler' type='button' align='center' value='TODO' onclick=""></input>
+		<input id='lampAutoToggler' type='button' align='center' value='TODO' onclick=""></input>
 
-		<input id='pin' type='password' value='****'></input>
+		<input id='pin' type='password' value='****' class='hidden'></input>
 
-		<div id='circle' class='alarm_off'></div>
 	</body>
 </html>
