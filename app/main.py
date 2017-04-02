@@ -37,4 +37,4 @@ class IntexController(object, Controller):
 if __name__ == '__main__':
     mainController = IntexController()
 
-    mainController.app.run('192.168.8.100', 8081)
+    mainController.app.run('localhost', 10000)
