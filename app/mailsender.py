@@ -1,7 +1,7 @@
 import smtplib
 
 USER = 'webtestkonto2015@gmail.com'
-PASS = '***'
+PASS = 'samolot123'
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 
@@ -16,4 +16,5 @@ def send_email(recipient, subject, text):
     msg = header + '\n' + text + ' \n\n'
     smtpserver.sendmail(USER, recipient, msg)
     smtpserver.close()
-    send_email(19mateusz92@gmail.com', 'test', 'test')
+
+send_email('19mateusz92@gmail.com', 'test', 'test')
