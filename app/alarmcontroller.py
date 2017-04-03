@@ -1,13 +1,13 @@
 #!/bin/python
 
 from controller import Controller
+from alarmdata import AlarmData
+import json
 
-from klein import Klein
-from twisted.web.static import File
 
 class AlarmController(object, Controller):
-
     isAlarmEnable = False
+    alarmData = AlarmData()
 
     def satUpAlarm(self, request):
         request.setHeader('Access-Control-Allow-Origin', '*')
@@ -35,3 +35,13 @@ class AlarmController(object, Controller):
         request.setResponseCode(200)
         return str(self.isAlarmEnable)
 
+    def saveAlarmData(self, request):
+        self.alarmData.secondsToDeactivate = request.args['secondsToDeactivate']
+        self.alarmData.sendMailDelay = request.args['sendMailDelay']
+        request.redirect('/index.html')
+
+    def getAlarmData(self, request):
+        request.setHeader('Content-Type', 'application/json')
+        return json.dumps(
+            {'secondsToDeactivate': self.alarmData.secondsToDeactivate,
+             'sendMailDelay': self.alarmData.sendMailDelay})

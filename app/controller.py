@@ -1,4 +1,5 @@
 #!/bin/python
+import config
 
 class Controller:
-    pin = 6660
+    pin = config.pin

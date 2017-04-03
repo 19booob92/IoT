@@ -1,5 +1,6 @@
 #!/bin/python
 
+from twisted.internet.defer import succeed
 from controller import Controller
 from lampcontroller import LampController
 from alarmcontroller import AlarmController
@@ -7,7 +8,8 @@ from alarmcontroller import AlarmController
 from klein import Klein
 from twisted.web.static import File
 
-class IntexController(object, Controller):
+
+class IndexController(object, Controller):
 
     alarmCtrl = AlarmController()
     lampCtrl = LampController()
@@ -19,7 +21,9 @@ class IntexController(object, Controller):
 
     @app.route('/', branch=True)
     def mainPage(self, request):
+        request.redirect('/index.html')
         return File('../pages/')
+
 
     @app.route('/enableAlarm')
     def satUpAlarm(self, request):
@@ -33,8 +37,17 @@ class IntexController(object, Controller):
     def getAlarmState(self, request):
         return self.alarmCtrl.getAlarmState(request)
 
+    @app.route('/saveConfig', methods=['POST'])
+    def saveAlarmData(self, request):
+        self.alarmCtrl.saveAlarmData(request)
+        succeed(None)
+
+    @app.route('/loadAlarmConfig')
+    def loadAlarmConfig(self, request):
+        return self.alarmCtrl.getAlarmData(request)
+
 
 if __name__ == '__main__':
-    mainController = IntexController()
+    mainController = IndexController()
 
-    mainController.app.run('localhost', 10000)
+    mainController.app.run('192.168.8.100', 8081)
