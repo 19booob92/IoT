@@ -24,7 +24,6 @@ class IndexController(object, Controller):
         request.redirect('/index.html')
         return File('../pages/')
 
-
     @app.route('/enableAlarm')
     def satUpAlarm(self, request):
         return self.alarmCtrl.satUpAlarm(request)
@@ -45,6 +44,18 @@ class IndexController(object, Controller):
     @app.route('/loadAlarmConfig')
     def loadAlarmConfig(self, request):
         return self.alarmCtrl.getAlarmData(request)
+
+    @app.route('/lamp/lampState')
+    def getLampState(self, request):
+        return self.lampCtrl.getLampState(request)
+
+    @app.route('/lamp/enable')
+    def enableLamp(self, request):
+        return self.lampCtrl.enableLamp(request)
+
+    @app.route('/lamp/disable/<int:pin>')
+    def disableLamp(self, request, pin):
+        return self.lampCtrl.disableLamp(request, pin)
 
 
 if __name__ == '__main__':
