@@ -4,6 +4,7 @@ from twisted.internet.defer import succeed
 from controller import Controller
 from lampcontroller import LampController
 from alarmcontroller import AlarmController
+from rpiservice import RpiService
 
 from klein import Klein
 from twisted.web.static import File
@@ -13,6 +14,7 @@ class IndexController(object, Controller):
 
     alarmCtrl = AlarmController()
     lampCtrl = LampController()
+    rpiService = RpiService()
 
     app = Klein()
 
@@ -56,6 +58,10 @@ class IndexController(object, Controller):
     @app.route('/lamp/disable/<int:pin>')
     def disableLamp(self, request, pin):
         return self.lampCtrl.disableLamp(request, pin)
+
+    @app.route('/rpi/status')
+    def getStatus(self, request):
+        return self.rpiService.getStatus(request)
 
 
 if __name__ == '__main__':

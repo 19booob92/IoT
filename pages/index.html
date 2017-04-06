@@ -5,6 +5,7 @@
     <script src="script/index.js"></script>
     <script src="script/lamp.js"></script>
     <script src="script/alarm.js"></script>
+    <script src="script/status.js"></script>
     <script>
         window.onload = setUpPage;
     </script>
@@ -13,9 +14,9 @@
 <body>
 <div id='alarmState' class='alarm_off'><a href="alarm.html"><p class='circleText'>Alarm</p></a></div>
 <div id='lampState' class='alarm_off'><p class='circleText'>Lampa</p></div>
-<div id='lampAuto' class='alarm_off'><p class'circleText'>Lampa auto</p></div>
-<div id='lampAuto' class='alarm_off'><p class'circleText'></p></div>
-<div id='lampAuto' class='alarm_off'><p class'circleText'></p></div>
+<div id='lampAuto' class='alarm_off'><p class='circleText'>Lampa auto</p></div>
+<div id='status' class='alarm_off'><p class='circleText'>Status</p></div>
+<div id='lampAuto' class='alarm_off'><p class='circleText'></p></div>
 
 <p id='header' align='center'>Witaj w świecie Boba !</p>
 
@@ -23,7 +24,7 @@
 <input id='lampToggler' type='button' align='center' value='Włącz lampę' onclick="lampBtnTrigger()"></input>
 <input id='lampAutoToggler' type='button' align='center' value='Włącz auto światło'
        onclick="lampAutoBtnTrigger()"></input>
-<input id='lampAutoToggler' type='button' align='center' value='TODO' onclick=""></input>
+<input id='statusBtn' type='button' align='center' value='Status' onclick="window.location.href='status.html'"></input>
 <input id='lampAutoToggler' type='button' align='center' value='TODO' onclick=""></input>
 
 <input id='pin' type='password' value='****' class='hidden'></input>
