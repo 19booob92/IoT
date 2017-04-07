@@ -42,6 +42,11 @@ body {
 	vertical-align: middle;
 }
 
+.disable {
+	background: lightgrey;
+	color: black;
+}
+
 .alarm_off {
 	background: black;
 }
