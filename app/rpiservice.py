@@ -24,4 +24,5 @@ class RpiService(object, Controller):
 
     def processTerminalOutput(self, command):
         output = os.popen(command)
-        return output.read()
+        terminalText = output.read()
+        return terminalText.replace("\n", "</br>")

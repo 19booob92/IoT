@@ -1,10 +1,10 @@
-var baseUrl = 'http://192.168.8.100:8081/';
+var baseUrl = 'http://192.168.8.102:8081/';
 
 
 function loadData() {
     var http = new XMLHttpRequest();
     http.open("GET", baseUrl + "rpi/status", true);
-    http.send();
+    http.send(null);
     http.onload = function () {
         fillPage(http.responseText);
     };
@@ -25,4 +25,4 @@ function createDiv(content) {
     tempDiv.className = 'divWithBorder';
     tempDiv.innerHTML = content;
     document.getElementById('data').appendChild(tempDiv);
-}
+};
