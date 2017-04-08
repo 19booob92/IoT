@@ -49,10 +49,11 @@ body {
 
 .alarm_off {
 	background: black;
+	background: rgba(0,0,0,0.1);
 }
 
 .alarm_on {
-	background: red;
+	background: rgba(255,0,0,1.0);
 }
 
 .hidden {
