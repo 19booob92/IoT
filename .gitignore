@@ -1,1 +1,5 @@
 app/config.py
+.idea
+*.pyc
+*.pycer
+*.jse

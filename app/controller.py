@@ -1,9 +1,9 @@
 #!/bin/python
-import config
+import liveapp.config
 import pickle
 
 class Controller:
-    pin = config.pin
+    pin = liveapp.config.pin
 
     def setUpAlarmState(self, state):
    	filePickle = open('/home/pi/Programs/shared.pkl', 'w')

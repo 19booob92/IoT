@@ -8,7 +8,7 @@ function setUpAlarmElements() {
 };
 
 preparePage = function (btn, icon, response) {
-    if (response === 'True') {
+    if (response === 'true') {
         icon.className = 'alarm_on';
         btn.value = 'Wyłącz alarm';
         document.getElementById('pin').className = '';
@@ -23,9 +23,9 @@ alarmBtnTrigger = function () {
 }
 
 toggleAlarm = function (btn, icon, alarmStatus) {
-    if (alarmStatus === 'False') {
+    if (alarmStatus === 'false') {
         turnAlarmOn(btn, icon);
-    } else if (alarmStatus === 'True') {
+    } else if (alarmStatus === 'true') {
         turnAlarmOff(btn, icon);
     }
 }

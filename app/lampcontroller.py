@@ -4,7 +4,7 @@ from controller import Controller
 from klein import Klein
 from twisted.web.static import File
 
-from rpi.diode import *
+from liveapp.diode import *
 
 class LampController(object, Controller):
     isLampOn = False
