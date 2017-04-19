@@ -5,20 +5,15 @@ from controller import Controller
 from lampcontroller import LampController
 from alarmcontroller import AlarmController
 from rpiservice import RpiService
-from rpi.alarm import Alarm
-from rpi.lamp import Lamp
 
 from klein import Klein
 from twisted.web.static import File
-
 
 class IndexController(object, Controller):
 
     alarmCtrl = AlarmController()
     lampCtrl = LampController()
     rpiService = RpiService()
-    alarm = Alarm()
-    lamp = Lamp()
 
     app = Klein()
 
@@ -32,18 +27,15 @@ class IndexController(object, Controller):
 
     @app.route('/enableAlarm')
     def satUpAlarm(self, request):
-        alarmData = self.alarmCtrl.alarmData
-        self.alarm.setUpAlarm(alarmData)
         return self.alarmCtrl.satUpAlarm(request)
 
     @app.route('/disableAlarm/<int:pin>')
     def disableAlarm(self, request, pin):
-        self.alarm.disableAlarm()
         return self.alarmCtrl.disableAlarm(request, pin)
 
     @app.route('/alarmState')
     def getAlarmState(self, request):
-        return self.alarmCtrl.getAlarmState(request)
+        return str(self.alarmCtrl.getAlarmState(request))
 
     @app.route('/saveConfig', methods=['POST'])
     def saveAlarmData(self, request):
@@ -60,12 +52,10 @@ class IndexController(object, Controller):
 
     @app.route('/lamp/enable')
     def enableLamp(self, request):
-        self.lamp.enableLamp()
         return self.lampCtrl.enableLamp(request)
 
     @app.route('/lamp/disable/<int:pin>')
     def disableLamp(self, request, pin):
-        self.lamp.disableLamp()
         return self.lampCtrl.disableLamp(request, pin)
 
     @app.route('/rpi/status')

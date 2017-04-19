@@ -4,6 +4,7 @@ from controller import Controller
 from klein import Klein
 from twisted.web.static import File
 
+from rpi.diode import *
 
 class LampController(object, Controller):
     isLampOn = False
@@ -21,6 +22,7 @@ class LampController(object, Controller):
             return "lamp is enable yet"
         else:
             self.isLampOn = True
+	    turnOnDiode()
             request.setResponseCode(200);
             return "lamp is on"
 
@@ -34,6 +36,7 @@ class LampController(object, Controller):
             if pin == self.pin:
                 self.isLampOn = False
                 request.setResponseCode(200);
+		turnOffDiode()
                 return "lamp is off"
             else:
                 request.setResponseCode(401);

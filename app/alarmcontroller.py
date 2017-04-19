@@ -3,37 +3,34 @@
 from controller import Controller
 from alarmdata import AlarmData
 import json
-
+import os
 
 class AlarmController(object, Controller):
-    isAlarmEnable = False
     alarmData = AlarmData()
 
     def satUpAlarm(self, request):
         request.setHeader('Access-Control-Allow-Origin', '*')
-        if self.isAlarmEnable:
-            request.setResponseCode(405)
-            return 'alarm is on yet'
 
-        self.isAlarmEnable = True
-        return 'alarm is on'
+	print 'test ///* ** true'
+	self.setUpAlarmState('true')
+	return 'alarm is on'
 
     def disableAlarm(self, request, pin):
         request.setHeader('Access-Control-Allow-Origin', '*')
-        if not self.isAlarmEnable:
+        if self.sysAlarmState() == 'false':
             request.setResponseCode(405)
             return 'alarm is off yet'
 
         if pin == self.pin:
             request.setResponseCode(200)
-            self.isAlarmEnable = False
+            self.setUpAlarmState('false')
             return 'alarm is off'
         request.setResponseCode(401)
         return 'wrong pin'
 
     def getAlarmState(self, request):
         request.setResponseCode(200)
-        return str(self.isAlarmEnable)
+        return self.sysAlarmState()
 
     def saveAlarmData(self, request):
         self.alarmData.secondsToDeactivate = request.args['secondsToDeactivate']
