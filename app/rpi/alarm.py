@@ -1,6 +1,5 @@
 import time
 from color import *
-from .. mailsender import send_email
 
 class Alarm():
 
@@ -9,7 +8,6 @@ class Alarm():
         self.blinkDiode(repts = 5, color = RED)
 
     def scanPort(self):
-        send_email("Wykryto zagrożenie")
         pass
 
     def disableAlarm(self):

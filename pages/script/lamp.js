@@ -1,4 +1,4 @@
-var lampBaseUrl = 'http://192.168.8.102:8081/lamp/';
+var lampBaseUrl = 'http://192.168.8.101:8081/lamp/';
 
 lampBtnTrigger = function () {
     var http = new XMLHttpRequest();

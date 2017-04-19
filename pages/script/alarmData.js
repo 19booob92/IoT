@@ -1,4 +1,4 @@
-var baseUrl = 'http://192.168.8.102:8081/';
+var baseUrl = 'http://192.168.8.101:8081/';
 
 setUpPage = function() {
     var secondsToDeactivate = document.getElementsByName("secondsToDeactivate")[0];
